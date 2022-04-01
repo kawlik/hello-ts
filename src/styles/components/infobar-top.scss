@@ -1,0 +1,35 @@
+@import '../../styles/common';
+
+section.app-infobar-bottom {
+
+    @include boxShadow();
+    @include transition();
+
+    background-color: $c-primary;
+    padding: 10px;
+    z-index: 10;
+    gap: 10px;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: stretch;
+
+    &.hide {
+
+        transform: translateY( 100% );
+    }
+
+    button {
+
+        @include animateEaseIn();
+
+        color: $c-font;
+        display: block;
+        flex-basis: 100%;
+
+        &.active {  color: $c-active; }
+    }
+}

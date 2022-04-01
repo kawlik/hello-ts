@@ -1,0 +1,51 @@
+@import 'common';
+
+
+/*	App core layout
+/*	*	*	*	*	*	*	*	*	*	*/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+body {
+
+    color: $c-font;
+    background-color: $c-secondary;
+
+    font-size: medium;
+    font-weight: 100;
+}
+
+#root {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: hidden;
+    overflow-y: hidden;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    align-items: stretch;
+}
+
+
+/*	App subcomponents layout
+/*	*	*	*	*	*	*	*	*	*	*/
+
+@import './components/infobar-bottom';
+@import './components/infobar-top';
