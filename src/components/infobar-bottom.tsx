@@ -7,9 +7,9 @@ import PersonIcon from '@mui/icons-material/Person';
 /*  Component logic
 /*   *   *   *   *   *   *   *   *   *   */
 export default function InfobarBottom( prop: {
-	toApps: () => void,
-	toNews: () => void,
-	toUser: () => void,
+	toApps(): void,
+	toNews(): void,
+	toUser(): void,
 	userUID: string,
 	current: string,
 	names: {
@@ -25,7 +25,7 @@ export default function InfobarBottom( prop: {
 return(
     <section className='app-infobar-bottom' key={ prop.userUID } >
     {
-        !prop.userUID
+        prop.userUID
         ?   <>
                 <button className={ `btn ${ prop.current === prop.names.news ? 'active' : '' }` } onClick={ () => prop.toNews() } >
                     <MessageIcon />

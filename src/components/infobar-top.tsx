@@ -6,8 +6,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 /*  Component logic
 /*   *   *   *   *   *   *   *   *   *   */
 export default function InfobarTop( prop: {
-	goBack(): () => void,
-	logout(): () => void,
+	goBack(): void,
+	logout(): void,
 	userUID: string,
 	pathURL: string,
 }) {
@@ -19,7 +19,7 @@ return(
 	<>
 		<section className='app-infobar-top' key={ prop.userUID } >
 	    {
-	        !prop.userUID
+	        prop.userUID
 	        ? <>
 	            <button className='btn' onClick={ () => prop.goBack() } >
 	                <ArrowCircleLeftIcon />

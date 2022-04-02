@@ -1,0 +1,19 @@
+form.app-login-form {
+
+    @include boxShadow();
+    @include transition();
+
+    background-color: $c-primary;
+    border: 1px solid $c-secondary;
+    border-radius: 10px;
+    
+    margin: 10px;
+    padding: 20px;
+
+    button.btn {
+
+        border-radius: 10px;
+        font-size: large;
+        text-align: center;
+    }
+}

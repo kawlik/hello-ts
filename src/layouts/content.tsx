@@ -2,10 +2,11 @@ import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-
 
 import { useAuthContext } from '../contexts/auth.context';
 
-import InfobarTop from '../components/infobar-top';
-
 import routerService from '../services/router.service';
+
 import InfobarBottom from '../components/infobar-bottom';
+import InfobarTop from '../components/infobar-top';
+import Login from '../components/login';
 
 
 /*  Component logic
@@ -17,7 +18,7 @@ export default function Content() {
 	const navigate = useNavigate()
 
 	// 	get auth values
-    const { user, logout } = useAuthContext();
+    const { user, logout, loginAnonymously } = useAuthContext();
 
 	
 /*  Component layout
@@ -25,27 +26,41 @@ export default function Content() {
 return(
 	<>
 		<InfobarTop
-			goBack={ () => logout( -1 ) }
-			logout={ logout }
-			userUID={ user?.ID }
+			goBack={ () => navigate( -1 ) }
+			logout={ () => logout() }
+			userUID={ user?.uid }
 			pathURL={ routerService.parse( location.pathname ) }
 		/>
 
 
 		<main id='app-main-content' >
-		<Routes>
-
-			<Route path={ routerService.pathLogin } element={ <h1>Login</h1> } />
-
+		<Routes key={ user?.uid }>
+		{
+			user
+			/*	when user is set fallbacks
+			/*	*	*	*	*	*	*	*	*/
+			? <>
+				
 				<Route path={ routerService.pathApps } element={ <h1>Apps</h1> } />
 
 				<Route path={ routerService.pathNews } element={ <h1>News</h1> } />
-				
+
 				<Route path={ routerService.pathUser } element={ <h1>User</h1> } />
-			
 
-			<Route path='*' element={ <Navigate replace to={ routerService.pathLogin } /> } />
+				<Route path='*' element={ <Navigate to={ routerService.pathApps } /> } />
 
+			</>
+			/*	when user is not set fallbacks
+			/*	*	*	*	*	*	*	*	*/
+			: <>
+
+				<Route path={ routerService.pathLogin } element={
+					<Login loginAnonymously={ () => loginAnonymously() } />
+				} />
+
+				<Route path='*' element={ <Navigate to={ routerService.pathLogin } /> } />
+			</>
+		}
 		</Routes>
 		</main>
 
@@ -53,7 +68,7 @@ return(
 			toApps={ () => navigate( routerService.pathApps ) }
 			toNews={ () => navigate( routerService.pathNews ) }
 			toUser={ () => navigate( routerService.pathUser ) }
-			userUID={ user?.ID }
+			userUID={ user?.uid }
 			current={ routerService.parse( location.pathname ) }
 			names={{
 				apps: routerService.nameApps,
