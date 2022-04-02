@@ -44,9 +44,11 @@ body {
 }
 
 
-/*	App subcomponents layout
+/*	App subcomponents styles
 /*	*	*	*	*	*	*	*	*	*	*/
 
 @import './components/infobar-bottom';
 @import './components/infobar-top';
 @import './components/login';
+
+@import './layouts/main';

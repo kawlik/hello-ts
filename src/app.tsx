@@ -1,7 +1,7 @@
 import { HashRouter as Router } from 'react-router-dom';
 
 import AuthProvider from './contexts/auth.context';
-import Content from './layouts/content';
+import MainContent from './layouts/main';
 
 import pwaService from './services/pwa.service';
 
@@ -19,7 +19,7 @@ return(
     <Router>
 	<AuthProvider>
 
-		<Content />
+		<MainContent />
 		
 	</AuthProvider>
     </Router>

@@ -2,11 +2,11 @@ form.app-login-form {
 
     @include boxShadow();
     @include transition();
-	@include animateEaseIn();
 
     background-color: $c-primary;
     border: 1px solid $c-secondary;
     border-radius: 10px;
+	max-width: 720px;
     
     margin: 10px;
     padding: 20px;

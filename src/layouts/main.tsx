@@ -11,7 +11,7 @@ import Login from '../components/login';
 
 /*  Component logic
 /*   *   *   *   *   *   *   *   *   *   */
-export default function Content() {
+export default function MainContent() {
 
 	// 	get location and navigate
 	const location = useLocation()
@@ -33,8 +33,8 @@ return(
 		/>
 
 
-		<main id='app-main-content' >
-		<Routes key={ user?.uid }>
+		<main key={ location.pathname } id='app-main-content' >
+		<Routes>
 		{
 			user
 			/*	when user is set fallbacks
