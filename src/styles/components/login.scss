@@ -2,6 +2,7 @@ form.app-login-form {
 
     @include boxShadow();
     @include transition();
+	@include animateEaseIn();
 
     background-color: $c-primary;
     border: 1px solid $c-secondary;
