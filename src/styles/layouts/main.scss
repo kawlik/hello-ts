@@ -1,6 +1,7 @@
 main#app-main-content {
 
     @include animateEaseIn();
+	@include transition();
 	
     animation-fill-mode: backwards;
 

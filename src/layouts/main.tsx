@@ -3,24 +3,40 @@ import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-
 import { useAuthContext } from '../contexts/auth.context';
 
 import routerService from '../services/router.service';
+import swipeService from '../services/swipe.service';
 
 import InfobarBottom from '../components/infobar-bottom';
 import InfobarTop from '../components/infobar-top';
 import Login from '../components/login';
+import { useEffect } from 'react';
 
 
 /*  Component logic
 /*   *   *   *   *   *   *   *   *   *   */
 export default function MainContent() {
-
+	
 	// 	get location and navigate
 	const location = useLocation()
 	const navigate = useNavigate()
 
+	// 	order of routes and current path
+	const order = [ routerService.pathNews, routerService.pathApps, routerService.pathUser ];
+	const cpath = location.pathname.split( /\//g )[1];
+
 	// 	get auth values
     const { user, logout, loginAnonymously } = useAuthContext();
 
-	
+	// 	swipe handling
+	useEffect(() => {
+		swipeService.start({
+			curr: cpath,
+			prev: () => navigate( order[ order.indexOf( cpath ) - 1 ] || cpath ),
+			next: () => navigate( order[ order.indexOf( cpath ) + 1 ] || cpath )
+		});
+	return(() => {
+		swipeService.stop();
+	})});
+
 /*  Component layout
 /*   *   *   *   *   *   *   *   *   *   */
 return(
