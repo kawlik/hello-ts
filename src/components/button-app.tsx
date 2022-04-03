@@ -10,7 +10,7 @@ export default function ButtonApp( prop: {
 /*  Component layout
 /*   *   *   *   *   *   *   *   *   *   */
 return(
-	<button className='app-button-app btn btn-light' onClick={ () => prop.open() } >
+	<button className='app-button-app btn btn-outline-dark' onClick={ () => prop.open() } >
         { prop.icon }
         <small className='text-muted d-block' >{ prop.name }</small>
 	</button>
