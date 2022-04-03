@@ -10,22 +10,25 @@ export default function PromptPWA( prop: {
 }) {
 	
 	// 	install prompt handler
-	const [ install, setInstall ] = useState<any>( null );
+	const [ install, setInstall ] = useState<boolean>( false );
 	const [ visible, setVisible ] = useState<boolean>( false );
 
 	// 	set ready at first
 	!install && prop.getInstallPrompt()
-	.then( install => setInstall( install ))
+	.then(() => setInstall( true ))
 	.then(() => setVisible( true ));
 
 	// 	installing PWA
 	async function installPWA() {
 
-		// 	prompt
-		install.prompt();
+		// 	get prompt
+		const installPrompt = await prop.getInstallPrompt();
+
+		// 	fire up prompt
+		installPrompt.prompt();
 
 		// 	await for outcome
-		const { outcome } = await install.userChoice;
+		const { outcome } = await installPrompt.userChoice;
 
 		// 	test outcome
 		if( outcome === 'accepted' ) dismissPWA();
