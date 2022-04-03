@@ -1,13 +1,18 @@
 import { registerSW } from 'virtual:pwa-register';
 
 
+/*  Mutable data with refrence
+/*   *   *   *   *   *   *   *   *   *   */
+
+let installPrompt: any;
+
+
 /*  Define service
 /*   *   *   *   *   *   *   *   *   *   */
 class PWAService{
 
 	private updateSW: ( reloadPage?: boolean | undefined ) => Promise<void>;
 	private installPromptReady: Event = new Event( 'isInstallPromptReady' );
-	private installPrompt: null|Event = null;
 
 	constructor() {
 
@@ -24,24 +29,24 @@ class PWAService{
 			event.preventDefault();
 
 			//  fetch event
-			this.installPrompt = event;
-		
+			installPrompt = event;
+
 			//  dispatch ecent
 			window.dispatchEvent( this.installPromptReady );
 		});
 	}
 
-	public async getInstallPrompt() {
+	public async getInstallPrompt(): Promise<any> {
 		return new Promise(( resolve, reject ) => {
 	
 			//  resolve when already set
-			if( this.installPrompt ) return resolve( this.installPrompt );
+			if( installPrompt ) return resolve( installPrompt );
 	
 			//  await for dispatch event
 			window.addEventListener( 'isInstallPromptReady', ( event ) => {
 	
 				//  resolve when ready
-				return resolve( this.installPrompt );
+				return resolve( installPrompt );
 			});
 		});
 	}

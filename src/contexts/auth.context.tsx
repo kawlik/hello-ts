@@ -20,7 +20,7 @@ export function useAuthContext() {
 /*  Component logic
 /*   *   *   *   *   *   *   *   *   *   */
 export default function AuthProvider( prop: {
-	children: JSX.Element	
+	children: JSX.Element | JSX.Element[]
 }) {
 
 	// 	user ref
@@ -70,7 +70,7 @@ return(
 		loginAnonymously,
 	}} >
 
-        { prop.children }
+	{ prop.children }
 
     </AuthContext.Provider>
 )};
