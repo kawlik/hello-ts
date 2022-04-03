@@ -12,6 +12,17 @@ $c-google: #0F9D58;
 $c-github: #333333;
 
 
+/*  maps
+/*   *   *   *   *   *   *   *   *   *   */
+
+$z-index: (
+    'base': 0,
+    'infobar': 10,
+    'pwainstall': 20,
+    'notification': 30,
+);
+
+
 /*  fast mixins
 /*   *   *   *   *   *   *   *   *   *   */
 

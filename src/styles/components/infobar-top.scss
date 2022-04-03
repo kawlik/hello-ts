@@ -4,8 +4,8 @@ section.app-infobar-bottom {
     @include transition();
 
     background-color: $c-primary;
+    z-index: map-get( $z-index, 'infobar' );
     padding: 10px;
-    z-index: 10;
     gap: 10px;
 
     display: flex;

@@ -34,6 +34,9 @@ class PWAService{
 			//  dispatch ecent
 			window.dispatchEvent( this.installPromptReady );
 		});
+
+		// 	fire up immediately
+		this.getInstallPrompt();
 	}
 
 	public async getInstallPrompt(): Promise<any> {
