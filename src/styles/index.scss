@@ -47,9 +47,11 @@ body {
 /*	App subcomponents styles
 /*	*	*	*	*	*	*	*	*	*	*/
 
+@import './components/button-app';
 @import './components/infobar-bottom';
 @import './components/infobar-top';
 @import './components/login';
 @import './components/prompt-pwa';
 
 @import './layouts/main';
+@import './layouts/apps';

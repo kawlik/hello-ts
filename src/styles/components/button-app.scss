@@ -1,0 +1,18 @@
+button.app-button-app {
+
+    @include boxShadow();
+    @include transition();
+    @include animateEaseIn();
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    aspect-ratio: 1 / 1;
+    width: 96px;
+
+    small {
+
+        width: max-content;
+        margin: 0 auto;
+    }
+}

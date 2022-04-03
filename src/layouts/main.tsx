@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import { useAuthContext } from '../contexts/auth.context';
@@ -7,8 +8,13 @@ import swipeService from '../services/swipe.service';
 
 import InfobarBottom from '../components/infobar-bottom';
 import InfobarTop from '../components/infobar-top';
+
 import Login from '../components/login';
-import { useEffect } from 'react';
+import Apps from './apps';
+import News from './news';
+import User from './user';
+
+import AppTest from './apps/test';
 
 
 /*  Component logic
@@ -57,11 +63,14 @@ return(
 			/*	*	*	*	*	*	*	*	*/
 			? <>
 				
-				<Route path={ routerService.pathApps } element={ <h1>Apps</h1> } />
+				<Route path={ routerService.pathApps } >
+					<Route path={ '' } element={ <Apps /> } />
+					<Route path={ routerService.pathAppTest } element={ <AppTest /> } />
+				</Route>
 
-				<Route path={ routerService.pathNews } element={ <h1>News</h1> } />
+				<Route path={ routerService.pathNews } element={ <News /> } />
 
-				<Route path={ routerService.pathUser } element={ <h1>User</h1> } />
+				<Route path={ routerService.pathUser } element={ <User /> } />
 
 				<Route path='*' element={ <Navigate to={ routerService.pathApps } /> } />
 
@@ -85,11 +94,16 @@ return(
 			toNews={ () => navigate( routerService.pathNews ) }
 			toUser={ () => navigate( routerService.pathUser ) }
 			userUID={ user?.uid }
-			current={ routerService.parse( location.pathname ) }
+			current={ location.pathname.split( /\//g )[1] }
 			names={{
 				apps: routerService.nameApps,
 				news: routerService.nameNews,
 				user: routerService.nameUser,
+			}}
+			paths={{
+				apps: routerService.pathApps,
+				news: routerService.pathNews,
+				user: routerService.pathUser,
 			}}
 		/>
 

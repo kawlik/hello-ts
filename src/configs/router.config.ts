@@ -23,6 +23,14 @@ export default <Route> {
 		'apps': {
 			name: 'Apps',
 			path: 'apps',
+
+			next: {
+
+				'test': {
+					name: 'App Test',
+					path: 'test',
+				}
+			}
 		},
 
 		'login': {

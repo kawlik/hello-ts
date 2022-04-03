@@ -16,9 +16,15 @@ export default function InfobarBottom( prop: {
 		apps: string,
 		news: string,
 		user: string,
+	},
+    paths: {
+		apps: string,
+		news: string,
+		user: string,
 	}
 }) {
 
+    console.log( prop.current );
 
 /*  Component layout
 /*   *   *   *   *   *   *   *   *   *   */
@@ -27,17 +33,17 @@ return(
     {
         prop.userUID
         ?   <>
-                <button className={ `btn ${ prop.current === prop.names.news ? 'active' : '' }` } onClick={ () => prop.toNews() } >
+                <button className={ `btn ${ prop.current === prop.paths.news ? 'active' : '' }` } onClick={ () => prop.toNews() } >
                     <MessageIcon />
                     <small className='text-muted d-block' >{ prop.names.news }</small>
                 </button>
 
-                <button className={ `btn ${ prop.current === prop.names.apps ? 'active' : '' }` } onClick={ () => prop.toApps() } >
+                <button className={ `btn ${ prop.current === prop.paths.apps ? 'active' : '' }` } onClick={ () => prop.toApps() } >
                     <AppsIcon />
                     <small className='text-muted d-block' >{ prop.names.apps }</small>
                 </button>
 
-                <button className={ `btn ${ prop.current === prop.names.user ? 'active' : '' }` } onClick={ () => prop.toUser() } >
+                <button className={ `btn ${ prop.current === prop.paths.user ? 'active' : '' }` } onClick={ () => prop.toUser() } >
                     <PersonIcon />
                     <small className='text-muted d-block' >{ prop.names.user }</small>
                 </button>

@@ -11,8 +11,12 @@ class RouterService{
 	/*	*	*	*	*	*	*	*	*/
 	constructor() {
 		this.parser.set( '/' + this.pathApps, this.nameApps );
+		this.parser.set( '/' + this.pathApps + '/' + this.pathAppTest, this.nameAppTest );
+
 		this.parser.set( '/' + this.pathNews, this.nameNews );
+
 		this.parser.set( '/' + this.pathUser, this.nameUser );
+
 		this.parser.set( '/' + this.pathLogin, this.nameLogin );
 	}
 
@@ -26,6 +30,8 @@ class RouterService{
 	/*	*	*	*	*	*	*	*	*/
 	get pathApps(): string { return `${ routerConfig.next?.apps.path }`; }
 	get nameApps(): string { return `${ routerConfig.next?.apps.name }`; }
+	get pathAppTest(): string { return `${ routerConfig.next?.apps.next?.test.path }`; }
+	get nameAppTest(): string { return `${ routerConfig.next?.apps.next?.test.name }`; }
 
 
 	/*	news based routes
