@@ -15,7 +15,7 @@ export default function UserQRS() {
 return(
     <section id='app-user-qrs' >
 
-        <QrReader className='user-qr-reader' onResult={ () => confirm( 'Add scaned user?' ) } constraints={{
+        <QrReader className='user-qr-reader' onResult={ ( result ) => result && confirm( 'Add scaned user?' ) } constraints={{
             facingMode: 'environment',
             aspectRatio: 1,
         }} />
