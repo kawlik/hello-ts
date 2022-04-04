@@ -24,23 +24,9 @@ return(
 			open={ () => navigate( routerService.pathAppTest ) }
 			icon={ <QuizIcon /> }
 			name={ routerService.nameAppTest }
-		/><ButtonApp
-		open={ () => navigate( routerService.pathAppTest ) }
-		icon={ <QuizIcon /> }
-		name={ routerService.nameAppTest }
-	/><ButtonApp
-	open={ () => navigate( routerService.pathAppTest ) }
-	icon={ <QuizIcon /> }
-	name={ routerService.nameAppTest }
-/><ButtonApp
-			open={ () => navigate( routerService.pathAppTest ) }
-			icon={ <QuizIcon /> }
-			name={ routerService.nameAppTest }
-		/><ButtonApp
-			open={ () => navigate( routerService.pathAppTest ) }
-			icon={ <QuizIcon /> }
-			name={ routerService.nameAppTest }
-		/><ButtonApp
+		/>
+		
+		<ButtonApp
 			open={ () => navigate( routerService.pathAppTest ) }
 			icon={ <QuizIcon /> }
 			name={ routerService.nameAppTest }
