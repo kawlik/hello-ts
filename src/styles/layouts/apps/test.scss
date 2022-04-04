@@ -1,6 +1,6 @@
 article#app-layout-test {
 
-    @include animateEaseIn();
+    @include animateFadeIn();
 	@include transition();
 
     width: 100%;

@@ -1,7 +1,7 @@
 section.app-select-user {
 
+    @include animateFadeIn();
     @include transition();
-    @include animateEaseIn();
 
     width: 100%;
     height: 100%;

@@ -40,6 +40,11 @@ $z-index: (
     animation-name: easeIn;
 }
 
+@mixin animateFadeIn {
+    @include animateOnce();
+    animation-name: fadeIn;
+}
+
 @mixin boxShadow( $color: $c-font ) {
     box-shadow: 0 0 15px -5px rgba( $c-font, .5 );
 }
@@ -60,6 +65,17 @@ $z-index: (
     } to {
 
         transform: scale( 1 );
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+
+        opacity: 0;
+
+    } to {
+
         opacity: 1;
     }
 }
