@@ -1,0 +1,18 @@
+section.app-content {
+
+    gap: 10px;
+    flex-grow: 1;
+    padding: 10px;
+    margin-top: 10px;
+    border-top: 1px solid $c-third;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: stretch;
+}

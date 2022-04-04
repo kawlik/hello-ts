@@ -24,8 +24,6 @@ export default function InfobarBottom( prop: {
 	}
 }) {
 
-    console.log( prop.current );
-
 /*  Component layout
 /*   *   *   *   *   *   *   *   *   *   */
 return(

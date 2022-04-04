@@ -47,11 +47,16 @@ body {
 /*	App subcomponents styles
 /*	*	*	*	*	*	*	*	*	*	*/
 
+@import './components/app-content';
 @import './components/button-app';
+@import './components/display-user';
 @import './components/infobar-bottom';
 @import './components/infobar-top';
 @import './components/login';
 @import './components/prompt-pwa';
+@import './components/select-user';
 
 @import './layouts/main';
 @import './layouts/apps';
+
+@import './layouts/apps/test';
