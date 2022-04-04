@@ -55,8 +55,10 @@ body {
 @import './components/login';
 @import './components/prompt-pwa';
 @import './components/select-user';
+@import './components/user-view';
 
 @import './layouts/main';
 @import './layouts/apps';
+@import './layouts/user';
 
 @import './layouts/apps/test';

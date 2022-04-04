@@ -1,0 +1,45 @@
+section#app-user {
+
+    width: 100%;
+    flex-grow: 1;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    align-items: stretch;
+
+    gap: 10px;
+    
+    aside.app-add-user {
+    
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-content: center;
+        align-items: center;
+    
+        position: sticky;
+        bottom: 0;
+    
+        padding: 10px;
+        width: 100%;
+        gap: 10px;
+
+        button.btn {
+
+            @include boxShadow();
+            @include transition();
+        
+            aspect-ratio: 1 / 1;
+        
+            border-radius: 10px;
+            font-size: large;
+            text-align: center;
+        
+            svg { font-size: xx-large; }
+        }
+    }
+}
