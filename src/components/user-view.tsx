@@ -8,11 +8,10 @@ import imgAnonymous from '../assets/anonymous.png';
 export default function UserView( prop: {
     getID(): void,
     user: {
-        displayName?: string,
-        photoURL?: string,
+        displayName: string,
+        photoURL: string,
     },
 }) {
-
 
 
 /*  Component layout
@@ -20,9 +19,9 @@ export default function UserView( prop: {
 return(
     <section className='app-user-view' >
 
-        <img src={ prop.user?.photoURL || imgAnonymous } alt={  prop.user?.displayName || 'Anonymous' } className='user-photo' />
+        <img src={ prop.user.photoURL || imgAnonymous } alt={  prop.user.displayName || 'Anonymous' } className='user-photo' />
 
-        <h2 className='lead mb-4' >{  prop.user?.displayName || 'Anonymous' }</h2>
+        <h2 className='lead mb-4' >{  prop.user.displayName || 'Anonymous' }</h2>
 
         <div className='info-block' >
             <button className='btn btn-dark btn-id' onClick={ () => prop.getID() } >

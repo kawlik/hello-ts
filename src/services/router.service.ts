@@ -16,6 +16,9 @@ class RouterService{
 		this.parser.set( '/' + this.pathNews, this.nameNews );
 
 		this.parser.set( '/' + this.pathUser, this.nameUser );
+		this.parser.set( '/' + this.pathUser + '/' + this.pathUserAdd, this.nameUserAdd );
+		this.parser.set( '/' + this.pathUser + '/' + this.pathUserQRS, this.nameUserQRS );
+		this.parser.set( '/' + this.pathUser + '/' + this.pathUserUID, this.nameUserUID );
 
 		this.parser.set( '/' + this.pathLogin, this.nameLogin );
 	}
@@ -44,6 +47,13 @@ class RouterService{
 	/*	*	*	*	*	*	*	*	*/
 	get pathUser(): string { return `${ routerConfig.next?.user.path }`; }
 	get nameUser(): string { return `${ routerConfig.next?.user.name }`; }
+	get pathUserAdd(): string { return `${ routerConfig.next?.user.next?.add.path }`; }
+	get nameUserAdd(): string { return `${ routerConfig.next?.user.next?.add.name }`; }
+	get pathUserQRS(): string { return `${ routerConfig.next?.user.next?.qrs.path }`; }
+	get nameUserQRS(): string { return `${ routerConfig.next?.user.next?.qrs.name }`; }
+	get pathUserUID(): string { return `${ routerConfig.next?.user.next?.uid.path }`; }
+	get nameUserUID(): string { return `${ routerConfig.next?.user.next?.uid.name }`; }
+
 
 
 	/*	login based routes

@@ -16,6 +16,10 @@ import User from './user';
 
 import AppTest from './apps/test';
 
+import UserAdd from './user/add';
+import UserUID from './user/uid';
+import UserQRS from './user/qrs';
+
 
 /*  Component logic
 /*   *   *   *   *   *   *   *   *   *   */
@@ -70,7 +74,12 @@ return(
 
 				<Route path={ routerService.pathNews } element={ <News /> } />
 
-				<Route path={ routerService.pathUser } element={ <User /> } />
+				<Route path={ routerService.pathUser } >
+					<Route path={ '' } element={ <User /> } />
+					<Route path={ routerService.pathUserAdd } element={ <UserAdd /> } />
+					<Route path={ routerService.pathUserQRS } element={ <UserQRS /> } />
+					<Route path={ routerService.pathUserUID } element={ <UserUID /> } />
+				</Route>
 
 				<Route path='*' element={ <Navigate to={ routerService.pathApps } /> } />
 

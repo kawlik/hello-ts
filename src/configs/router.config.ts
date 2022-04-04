@@ -46,6 +46,24 @@ export default <Route> {
 		'user': {
 			name: 'User',
 			path: 'user',
+
+			next: {
+
+				'add': {
+					name: 'Add friend',
+					path: 'add',
+				},
+
+				'qrs': {
+					name: 'QR Code scaner',
+					path: 'qrs',
+				},
+				
+				'uid': {
+					name: 'User ID',
+					path: 'uid',
+				}
+			}
 		},
 	},
 };
