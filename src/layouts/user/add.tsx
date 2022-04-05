@@ -1,6 +1,6 @@
 import { useAuthContext } from '../../contexts/auth.context';
 
-import SelectUser from '../../components/select-user';
+import FindUser from '../../components/find-user';
 
 
 /*  Component logic
@@ -16,7 +16,7 @@ export default function UserAdd() {
 return(
     <section id='app-user-add'>
     
-        <SelectUser setSelectedUser={ () => confirm( 'Add selected user?' ) }/>
+        <FindUser setSelectedUser={ () => confirm( 'Add selected user?' ) }/>
 
     </section>
 )};

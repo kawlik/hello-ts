@@ -40,8 +40,8 @@ export default function MainContent() {
 	useEffect(() => {
 		swipeService.start({
 			curr: cpath,
-			prev: () => navigate( order[ order.indexOf( cpath ) - 1 ] || cpath ),
-			next: () => navigate( order[ order.indexOf( cpath ) + 1 ] || cpath )
+			prev: () => navigate( order[ order.indexOf( cpath ) - 1 ] || location.pathname ),
+			next: () => navigate( order[ order.indexOf( cpath ) + 1 ] || location.pathname )
 		});
 	return(() => {
 		swipeService.stop();
