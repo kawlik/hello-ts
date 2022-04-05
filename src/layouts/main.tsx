@@ -36,12 +36,14 @@ export default function MainContent() {
 	// 	get auth values
     const { user, logout, loginAnonymously } = useAuthContext();
 
+	console.log( location.pathname.slice( 1 ) );
+
 	// 	swipe handling
 	useEffect(() => {
 		swipeService.start({
 			curr: cpath,
-			prev: () => navigate( order[ order.indexOf( cpath ) - 1 ] || location.pathname ),
-			next: () => navigate( order[ order.indexOf( cpath ) + 1 ] || location.pathname )
+			prev: () => order[ order.indexOf( cpath ) - 1 ] && navigate( order[ order.indexOf( cpath ) - 1 ] ),
+			next: () => order[ order.indexOf( cpath ) + 1 ] && navigate( order[ order.indexOf( cpath ) + 1 ] )
 		});
 	return(() => {
 		swipeService.stop();
