@@ -8,6 +8,7 @@ import NoAccountsIcon from '@mui/icons-material/NoAccounts';
 /*   *   *   *   *   *   *   *   *   *   */
 export default function Login( prop: {
 	loginAnonymously(): void,
+	loginWithGoogle(): void,
 }) {
 
 
@@ -28,7 +29,7 @@ return(
 			<span className='align-middle p-2' >Join with Facebook</span>
 		</button>
 
-		<button className='w-100 py-2 mb-2 btn btn-outline-success btn-google' disabled >
+		<button className='w-100 py-2 mb-2 btn btn-outline-success btn-google' onClick={ () => prop.loginWithGoogle() } >
 			<GoogleIcon />
 			<span className='align-middle p-2' >Join with Google</span>
 		</button>

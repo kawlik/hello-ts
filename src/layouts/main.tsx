@@ -34,7 +34,7 @@ export default function MainContent() {
 	const cpath = location.pathname.split( /\//g )[1];
 
 	// 	get auth values
-    const { user, logout, loginAnonymously } = useAuthContext();
+    const { user, logout, loginAnonymously, loginWithGoogle } = useAuthContext();
 
 	console.log( location.pathname.slice( 1 ) );
 
@@ -91,7 +91,10 @@ return(
 			: <>
 
 				<Route path={ routerService.pathLogin } element={
-					<Login loginAnonymously={ () => loginAnonymously() } />
+					<Login
+						loginAnonymously={ () => loginAnonymously() }
+						loginWithGoogle={ () => loginWithGoogle() }
+					/>
 				} />
 
 				<Route path='*' element={ <Navigate to={ routerService.pathLogin } /> } />

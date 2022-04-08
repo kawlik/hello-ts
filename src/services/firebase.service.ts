@@ -1,5 +1,5 @@
 import { FirebaseApp, initializeApp } from 'firebase/app';
-import { Auth, getAuth, signInAnonymously } from 'firebase/auth';
+import { Auth, getAuth, GoogleAuthProvider, signInAnonymously, signInWithPopup } from 'firebase/auth';
 
 import firebaseConfig from '../configs/firebase.config';
 
@@ -19,10 +19,23 @@ class FirebaseService{
 
 	/*	auth functions
 	/*	*	*	*	*	*	*	*	*/
-
 	async getAuthAnonymously() {
-		return ( await signInAnonymously( this.firebaseAuth ))?.user;
+		try {
+			return ( await signInAnonymously( this.firebaseAuth ))?.user;
+		} catch( err ) {
+			console.error( err );
+		}
+		return null;
 	};
+
+	async getAuthWithGoogle() {
+		try {
+			return ( await signInWithPopup( this.firebaseAuth, new GoogleAuthProvider()))?.user;
+		} catch( err ) {
+			console.error( err );
+		}
+		return null;
+	}
 };
 
 

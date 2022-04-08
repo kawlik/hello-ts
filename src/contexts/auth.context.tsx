@@ -47,6 +47,10 @@ export default function AuthProvider( prop: {
 		setUser( await firebaseService.getAuthAnonymously());
 	}
 
+	async function loginWithGoogle() {
+		setUser( await firebaseService.getAuthWithGoogle());
+	}
+
 
 	// 	on effect
 	useEffect(() => {
@@ -68,6 +72,7 @@ return(
 		user,
 		logout,
 		loginAnonymously,
+		loginWithGoogle,
 	}} >
 
 	{ prop.children }
