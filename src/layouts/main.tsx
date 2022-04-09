@@ -19,6 +19,7 @@ import AppTest from './apps/test';
 import UserAdd from './user/add';
 import UserUID from './user/uid';
 import UserQRS from './user/qrs';
+import AppTodo from './apps/todo';
 
 
 /*  Component logic
@@ -35,8 +36,6 @@ export default function MainContent() {
 
 	// 	get auth values
     const { user, logout, loginAnonymously, loginWithGoogle } = useAuthContext();
-
-	console.log( location.pathname.slice( 1 ) );
 
 	// 	swipe handling
 	useEffect(() => {
@@ -72,6 +71,7 @@ return(
 				<Route path={ routerService.pathApps } >
 					<Route path={ '' } element={ <Apps /> } />
 					<Route path={ routerService.pathAppTest } element={ <AppTest /> } />
+					<Route path={ routerService.pathAppTodo } element={ <AppTodo /> } />
 				</Route>
 
 				<Route path={ routerService.pathNews } element={ <News /> } />

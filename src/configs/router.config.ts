@@ -29,6 +29,11 @@ export default <Route> {
 				'test': {
 					name: 'App Test',
 					path: 'test',
+				},
+
+				'todo': {
+					name: 'App Todo',
+					path: 'todo',
 				}
 			}
 		},

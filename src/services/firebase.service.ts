@@ -23,18 +23,16 @@ class FirebaseService{
 		try {
 			return ( await signInAnonymously( this.firebaseAuth ))?.user;
 		} catch( err ) {
-			console.error( err );
+			return null;
 		}
-		return null;
 	};
 
 	async getAuthWithGoogle() {
 		try {
 			return ( await signInWithPopup( this.firebaseAuth, new GoogleAuthProvider()))?.user;
 		} catch( err ) {
-			console.error( err );
+			return null;
 		}
-		return null;
 	}
 };
 

@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 
 import firebaseService from '../services/firebase.service';
 import storageService from '../services/storage.service';
+import apiService from '../services/api.service';
 
 
 /*  Component Context
@@ -24,7 +25,11 @@ export default function AuthProvider( prop: {
 }) {
 
 	// 	user ref
-	const [ user, setUser ] = useState<any>( null )
+	const [ user, setUser ] = useState<{
+		displayName?: string|null;
+		photoURL?: string|null;
+		uid?: string;
+	}|null>( null )
 
 	// 	user utility functions
 	function logout(): void {
@@ -44,11 +49,30 @@ export default function AuthProvider( prop: {
 
 	// 	user login types
 	async function loginAnonymously() {
-		setUser( await firebaseService.getAuthAnonymously());
+
+		// 	fetch auth
+		const auth = await firebaseService.getAuthAnonymously();
+
+		// 	set user
+		setUser({
+			displayName: null,
+			photoURL: null,
+			uid: auth?.uid,
+		});
 	}
 
 	async function loginWithGoogle() {
-		setUser( await firebaseService.getAuthWithGoogle());
+
+		// 	fetch and test auth
+		const auth = await firebaseService.getAuthWithGoogle();
+		const user = await apiService.testUserOnServer({
+			displayName: auth?.displayName,
+			photoURL: auth?.photoURL,
+			uid: auth?.uid,
+		});
+
+		// 	set user
+		setUser( user );
 	}
 
 
@@ -57,9 +81,9 @@ export default function AuthProvider( prop: {
 
 		// 	user cashing
 		readSavedUser();
-		saveLogedUser();	
+		saveLogedUser();
 
-		// 	user debug
+		// 	debug
 		console.log( user );
 
 	}, [ user ]);
