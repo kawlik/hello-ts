@@ -29,11 +29,11 @@ class ApiService{
             const user = ( await axios.post( this.base + '/user/verify', auth ))?.data;
 
             //  return result
-            return {
+            return user ? {
                 displayName: user?.body?.displayName,
                 photoURL: user?.body?.photoURL,
                 uid: user?.auth
-            };
+            } : null;
 
         } catch( err ) {
             return null;

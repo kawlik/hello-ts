@@ -14,12 +14,13 @@ import Apps from './apps';
 import News from './news';
 import User from './user';
 
+import AppShoppingList from './apps/shopping-list';
 import AppTest from './apps/test';
+import AppTodo from './apps/todo';
 
 import UserAdd from './user/add';
 import UserUID from './user/uid';
 import UserQRS from './user/qrs';
-import AppTodo from './apps/todo';
 
 
 /*  Component logic
@@ -72,6 +73,7 @@ return(
 					<Route path={ '' } element={ <Apps /> } />
 					<Route path={ routerService.pathAppTest } element={ <AppTest /> } />
 					<Route path={ routerService.pathAppTodo } element={ <AppTodo /> } />
+					<Route path={ routerService.pathAppShoppingList } element={ <AppShoppingList /> } />
 				</Route>
 
 				<Route path={ routerService.pathNews } element={ <News /> } />

@@ -6,6 +6,7 @@ import ButtonApp from '../components/button-app';
 
 import QuizIcon from '@mui/icons-material/Quiz';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 
 
 /*  Component logic
@@ -22,16 +23,22 @@ return(
 	<section id='app-apps-container' >
 
 		
-		{/* <ButtonApp
+		<ButtonApp
 			open={ () => navigate( routerService.pathAppTest ) }
 			icon={ <QuizIcon /> }
 			name={ routerService.nameAppTest }
-		/> */}
+		/>
 		
 		<ButtonApp
 			open={ () => navigate( routerService.pathAppTodo ) }
 			icon={ <FactCheckIcon /> }
 			name={ routerService.nameAppTodo }
+		/>
+
+        <ButtonApp
+			open={ () => navigate( routerService.pathAppShoppingList ) }
+			icon={ <LocalMallIcon /> }
+			name={ routerService.nameAppShoppingList }
 		/>
 
 	</section>

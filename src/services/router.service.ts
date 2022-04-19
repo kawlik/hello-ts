@@ -13,6 +13,7 @@ class RouterService{
 		this.parser.set( '/' + this.pathApps, this.nameApps );
 		this.parser.set( '/' + this.pathApps + '/' + this.pathAppTest, this.nameAppTest );
 		this.parser.set( '/' + this.pathApps + '/' + this.pathAppTodo, this.nameAppTodo );
+		this.parser.set( '/' + this.pathApps + '/' + this.pathAppShoppingList, this.nameAppShoppingList );
 
 		this.parser.set( '/' + this.pathNews, this.nameNews );
 
@@ -38,6 +39,9 @@ class RouterService{
 	get nameAppTest(): string { return `${ routerConfig.next?.apps.next?.test.name }`; }
 	get pathAppTodo(): string { return `${ routerConfig.next?.apps.next?.todo.path }`; }
 	get nameAppTodo(): string { return `${ routerConfig.next?.apps.next?.todo.name }`; }
+    get pathAppShoppingList(): string { return `${ routerConfig.next?.apps.next?.shoping_list.path }`; }
+	get nameAppShoppingList(): string { return `${ routerConfig.next?.apps.next?.shoping_list.name }`; }
+
 
 
 	/*	news based routes

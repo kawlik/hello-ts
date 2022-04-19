@@ -34,6 +34,11 @@ export default <Route> {
 				'todo': {
 					name: 'App Todo',
 					path: 'todo',
+				},
+
+                'shoping_list': {
+					name: 'App Shoping List',
+					path: 'shoping-list',
 				}
 			}
 		},
