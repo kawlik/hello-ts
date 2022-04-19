@@ -22,11 +22,11 @@ return(
 	<section id='app-apps-container' >
 
 		
-		<ButtonApp
+		{/* <ButtonApp
 			open={ () => navigate( routerService.pathAppTest ) }
 			icon={ <QuizIcon /> }
 			name={ routerService.nameAppTest }
-		/>
+		/> */}
 		
 		<ButtonApp
 			open={ () => navigate( routerService.pathAppTodo ) }

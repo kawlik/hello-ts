@@ -26,9 +26,9 @@ export default function AuthProvider( prop: {
 
 	// 	user ref
 	const [ user, setUser ] = useState<{
-		displayName?: string|null;
-		photoURL?: string|null;
-		uid?: string;
+		displayName?: string;
+		photoURL?: string;
+		uid: string;
 	}|null>( null )
 
 	// 	user utility functions
@@ -55,9 +55,7 @@ export default function AuthProvider( prop: {
 
 		// 	set user
 		setUser({
-			displayName: null,
-			photoURL: null,
-			uid: auth?.uid,
+			uid: auth?.uid || 'Anonymous',
 		});
 	}
 
@@ -65,11 +63,13 @@ export default function AuthProvider( prop: {
 
 		// 	fetch and test auth
 		const auth = await firebaseService.getAuthWithGoogle();
-		const user = await apiService.testUserOnServer({
-			displayName: auth?.displayName,
-			photoURL: auth?.photoURL,
-			uid: auth?.uid,
-		});
+
+        //  verify user
+        const user = await apiService.verifyOnServer({
+            displayName: auth?.displayName || '',
+		    photoURL: auth?.photoURL || '',
+		    uid: auth?.uid || ''
+        });
 
 		// 	set user
 		setUser( user );

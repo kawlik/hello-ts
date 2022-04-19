@@ -27,7 +27,7 @@ return(
         <h2 className='lead'>Select user</h2>
 
         <div className='input-group' >
-            <input type='text' className='form-control' onChange={ ( event ) => setMatch( event.target.value ) }/>
+            <input type='text' className='form-control' onChange={ ( event ) => setMatch( event.target.value ) } />
             <span className='input-group-text'><SearchIcon /></span>
         </div>
 

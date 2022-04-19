@@ -1,16 +1,28 @@
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 
 import AppContent from '../../components/app-content';
-import DisplayUser from '../../components/display-user';
-import SelectUser from '../../components/select-user';
+
+import AddTaskIcon from '@mui/icons-material/AddTask';
 
 
 /*  Component logic
 /*   *   *   *   *   *   *   *   *   *   */
 export default function AppTodo() {
 
-    //  app needs to select user
-    const [ selectedUser, setSelectedUser ] = useState<string>( '' );
+	// 	in input state
+	const [ taskName, setTaskName ] = useState( '' );
+
+	// 	all tasks
+	const [ tasks, setTasks ] = useState( [] );
+
+
+	// 	utilities
+	async function addTask( event: MouseEvent<HTMLButtonElement> ): Promise<void> {
+		event.preventDefault();
+
+		// 	delete input value
+		setTaskName( '' );
+	}
 
 
 /*  Component layout
@@ -18,6 +30,26 @@ export default function AppTodo() {
 return(
     <>
 	<article id='app-layout-todo' >
+
+		<h2 className='lead'>Add new thing to do</h2>
+
+		<div className='input-group' >
+            <input type='text' className='form-control' value={ taskName } onChange={ ( event ) => setTaskName( event.target.value ) } />
+            <button
+				className='btn btn-success input-group-text'
+				onClick={ ( event ) => addTask( event ) }
+				disabled={ taskName.length < 3 }
+			><AddTaskIcon /></button>
+        </div>
+
+		<AppContent>
+		{
+
+		}
+		{
+
+		}
+		</AppContent>
 
     </article>
     </>

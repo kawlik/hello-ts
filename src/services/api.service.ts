@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 
 /*  Define service
@@ -14,20 +14,30 @@ class ApiService{
 
 	/*	user
 	/*	*	*	*	*	*	*	*	*/
-	async testUserOnServer( user: {
-		displayName?: string|null;
-		photoURL?: string|null;
-		uid?: string;
-	}): Promise<{
-		displayName?: string|null;
-		photoURL?: string|null;
-		uid?: string;
+	async verifyOnServer( auth: {
+		displayName?: string;
+		photoURL?: string;
+		uid: string;
+    }): Promise<{
+        displayName?: string;
+		photoURL?: string;
+		uid: string;
 	}|null> {
-		try {
-			return ( await axios.post( this.base + '/user/test', user ))?.data;
-		} catch( err ) {
-			return null;
-		}
+        try {
+
+            //  fetch user
+            const user = ( await axios.post( this.base + '/user/verify', auth ))?.data;
+
+            //  return result
+            return {
+                displayName: user?.body?.displayName,
+                photoURL: user?.body?.photoURL,
+                uid: user?.auth
+            };
+
+        } catch( err ) {
+            return null;
+        }
 	}
 };
 
